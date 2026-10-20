@@ -1,0 +1,2 @@
+SET LOAD SCAN_ROWS 50000
+LOAD tabell tabell3.csv NEW

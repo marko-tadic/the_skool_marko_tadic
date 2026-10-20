@@ -1,0 +1,10 @@
+SET PAGESIZE 100
+
+DESC system.tabell;
+
+SELECT *
+FROM tabell
+FETCH FIRST 20 ROWS ONLY;
+
+
+EXIT
