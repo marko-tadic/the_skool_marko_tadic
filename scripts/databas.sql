@@ -1,0 +1,7 @@
+SELECT 
+    BESLUT,
+    COUNT(*) AS ANTAL
+FROM
+    tabell
+GROUP BY
+    BESLUT;
