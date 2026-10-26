@@ -1,7 +1,5 @@
-SELECT 
-    BESLUT,
-    COUNT(*) AS ANTAL
-FROM
-    tabell
-GROUP BY
-    BESLUT;
+SET PAGESIZE 100
+
+DESC system.tabell;
+
+EXIT
