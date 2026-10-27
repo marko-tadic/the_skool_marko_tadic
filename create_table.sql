@@ -38,9 +38,9 @@ CREATE TABLE IF NOT EXISTS kommun (
 );
 
 CREATE TABLE ansökan (
-    diarienummer VARCHAR2(100) INT PRIMARY KEY,
-    sun5_kod VARCHAR2(50),
-    sqf_kod VARCHAR2(50),
+    diarienummer VARCHAR2(100) PRIMARY KEY,
+    sun5_kod INT,
+    sqf_kod INT,
     anordnare_id INT,
     utbildningsnamn VARCHAR2(200),
     beslut VARCHAR2(50),
@@ -53,12 +53,12 @@ CREATE TABLE ansökan (
     beviljade_platser_totalt INT,
     CONSTRAINT fk_ansökan_sun5
         FOREIGN KEY (sun5_kod)
-        REFERENCES sun5_inrikting(sun5_kod),
+        REFERENCES sun5_inriktning(sun5_kod),
     CONSTRAINT fk_ansökan_seqf
         FOREIGN KEY (seqf_kod)
         REFERENCES seqf(seqf_kod),
     CONSTRAINT fk_ansökan_anordnare
-        FOREIGN KEY (anordnare_id),
+        FOREIGN KEY (anordnare_id)
         REFERENCES utbildningsanordnare(anordnare_id)
 );
 
