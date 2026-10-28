@@ -1,3 +1,12 @@
+DROP TABLE ansökan_kommun CASCADE CONSTRAINTS PURGE;
+DROP TABLE ansökan CASCADE CONSTRAINTS PURGE;
+DROP TABLE kommun CASCADE CONSTRAINTS PURGE;
+DROP TABLE sun5_inriktning CASCADE CONSTRAINTS PURGE;
+DROP TABLE lan CASCADE CONSTRAINTS PURGE;
+DROP TABLE utbildningsanordnare CASCADE CONSTRAINTS PURGE;
+DROP TABLE seqf CASCADE CONSTRAINTS PURGE;
+DROP TABLE utbildningsområde CASCADE CONSTRAINTS PURGE;
+
 CREATE TABLE IF NOT EXISTS utbildningsområde (
     utbildningsområde_id INT PRIMARY KEY,
     utbildningsområde_name VARCHAR2(200)
@@ -20,7 +29,7 @@ CREATE TABLE IF NOT EXISTS lan (
 );
 
 CREATE TABLE IF NOT EXISTS sun5_inriktning (
-    sun5_kod INT PRIMARY KEY,
+    sun5_kod VARCHAR2(100) PRIMARY KEY,
     utbildningsområde_id INT,
     sun5_namn VARCHAR2(200),    
     CONSTRAINT fk_sun5_utbildningsområde
@@ -39,8 +48,8 @@ CREATE TABLE IF NOT EXISTS kommun (
 
 CREATE TABLE ansökan (
     diarienummer VARCHAR2(100) PRIMARY KEY,
-    sun5_kod INT,
-    sqf_kod INT,
+    sun5_kod VARCHAR2(100),
+    seqf_kod INT,
     anordnare_id INT,
     utbildningsnamn VARCHAR2(200),
     beslut VARCHAR2(50),
