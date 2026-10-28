@@ -82,3 +82,5 @@ CREATE TABLE IF NOT EXISTS ansökan_kommun (
         FOREIGN KEY (kommun_id)
         REFERENCES kommun(kommun_id)
 );
+
+EXIT
