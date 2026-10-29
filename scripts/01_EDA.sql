@@ -97,6 +97,7 @@ FROM
     tabell
 WHERE 
     BESLUT = 'Beviljad'
+    AND LÄN != 'Flera kommuner'
 GROUP BY
     LÄN
 ORDER BY

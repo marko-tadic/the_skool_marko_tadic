@@ -5,7 +5,7 @@ labuppgift SQL1
 Jag har sorterat skripten i foldern ```scripts```
 
 ## Uppgift 2 & 3 - Domänexpert intervju / Datadrivna beslut.
-Under ```scripts````hittar du ```interview.md```
+Under ```scripts``` hittar du ```interview.md```
 (Tack Nike för att du delade med dig av dina anteckningar)
 
 ## Uppgift 4 
@@ -33,7 +33,9 @@ Eftersom **The Skool** är en helt ny skola utan tidigare utbildnings- eller bet
 
 ### Teknisk miljö och verktyg
 Databashanterare: Oracle Database 23ai
+
 Terminal: Git Bash
+
 Frågespråk: SQL
 ### EDA och min roll
 
