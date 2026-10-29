@@ -2,14 +2,14 @@
 labuppgift SQL1 
 
 ## Uppgift 1 - Grundläggande EDA
-Jag har sorterat skripten i foldern ```scripts```
+Hittar den som ```01_EDA.sql``` under ```scripts```
 
 ## Uppgift 2 & 3 - Domänexpert intervju / Datadrivna beslut.
-Under ```scripts``` hittar du ```interview.md```
+Under ```scripts``` hittar du ```interview.md``` samt ```05_query.sql``` för frågorna från intervjun. 
 (Tack Nike för att du delade med dig av dina anteckningar)
 
 ## Uppgift 4 
-TODO skapa folder under ```scripts``` 
+Hittar den som ```04_EDA.sql``` under ```scripts```
 
 ## Uppgift 5 - Analys av utbildningsansökningar - The Skool
 
@@ -32,11 +32,9 @@ Eftersom **The Skool** är en helt ny skola utan tidigare utbildnings- eller bet
 - Konkurrentanalys: Hur ser framgången ut för andra etablerade skolor, och i hur stor utsträckning lyckas de pricka rätt och få sina ansökningar beviljade?
 
 ### Teknisk miljö och verktyg
-Databashanterare: Oracle Database 23ai
-
-Terminal: Git Bash
-
-Frågespråk: SQL
+**Databashanterare:** Oracle Database 23ai
+**Terminal:** Git Bash
+**Frågespråk:** SQL
 ### EDA och min roll
 
 ### Screenshots, resultat
