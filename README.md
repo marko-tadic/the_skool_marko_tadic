@@ -38,5 +38,8 @@ Eftersom **The Skool** är en helt ny skola utan tidigare utbildnings- eller bet
 ### EDA och min roll
 
 ### Screenshots, resultat
-
+![utbildningsområde](screenshots/utbildningsområde.png)  
+![huvudmannatyp](screenshots/huvudmannatyp.png)  
+![studieform](screenshots/studieform.png)  
+![konkurrens.png](screenshots/konkurrens.png)  
 ### SQL-analys, frågor, resultat
