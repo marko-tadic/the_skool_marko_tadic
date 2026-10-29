@@ -5,7 +5,7 @@ labuppgift SQL1
 Hittar den som ```01_EDA.sql``` under ```scripts```
 
 ## Uppgift 2 & 3 - Domänexpert intervju / Datadrivna beslut.
-Under ```scripts``` hittar du ```interview.md``` samt ```05_query.sql``` för frågorna från intervjun.   
+Under ```scripts``` hittar du ```interview.md``` samt ```03_query.sql``` för frågorna från intervjun.   
 (Tack Nike för att du delade med dig av dina anteckningar)
 
 ## Uppgift 4 
