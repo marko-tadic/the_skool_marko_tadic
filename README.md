@@ -1,5 +1,5 @@
 # the_skool_marko_tadic
-labuppgift SQL1 
+### Labuppgift SQL1  
 
 ## Uppgift 1 - Grundläggande EDA
 Hittar den som ```01_EDA.sql``` under ```scripts```
@@ -12,10 +12,9 @@ Under ```scripts``` hittar du ```interview.md``` samt ```03_query.sql``` för fr
 Hittar den som ```04_EDA.sql``` under ```scripts```
 
 ## Uppgift 5 - Analys av utbildningsansökningar - The Skool
-
 Detta arbete syftar till att applicera SQL-kunskaper för att hjälpa utbildningsanordnaren **The Skool** att navigera i myndigheternas beslut gällande utbildningsansökningar. Genom att strukturera och analysera datan får ledningen ett konkret stöd för att fatta relevanta, datadrivna beslut inför framtida utbildningsstarter och veta var de ska rikta sina resurser.
 
-Denna lab bygger på en verklig tabellanalys från 2025 som har konverterats till CSV-format och migrerats till en databasmiljö.
+Denna lab bygger på en verklig tabellanalys från 2025 som har konverterats till CSV-format och exporterats till en databasmiljö.
 
 ### Bakgrund och syfte
 För att utbildningsanordnare ska beviljas att bedriva YH-utbildningar (program eller kurser) med statligt finansiellt stöd krävs en formell ansökan till myndigheten. Varje enskild ansökan måste innehålla:
@@ -35,11 +34,14 @@ Eftersom **The Skool** är en helt ny skola utan tidigare utbildnings- eller bet
 **Databashanterare:** Oracle Database 23ai  
 **Terminal:** Git Bash  
 **Frågespråk:** SQL  
-### EDA och min roll
 
-### Screenshots, resultat
+### Exempel på SQL-frågor och resultat
+På frågan om vilka specifika utbildningsområden blir godkända och hur stor andel av ansökningar inom dessa områden går igenom så är här ett exempel:  
 ![utbildningsområde](screenshots/utbildningsområde.png)  
+Konkurrensen bland huvudmannatyp kan vi se här:  
 ![huvudmannatyp](screenshots/huvudmannatyp.png)  
+Hur det ser ut med antal ansökningar och beviljandegrad för studieform:  
 ![studieform](screenshots/studieform.png)  
+Samt konkurrens mellan anordnare (har valt att filtrera bort anordnare med färre eller lika med 5 ansökningar):  
 ![konkurrens.png](screenshots/konkurrens.png)  
-### SQL-analys, frågor, resultat
+
