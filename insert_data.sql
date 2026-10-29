@@ -34,3 +34,28 @@ SELECT DISTINCT
 FROM
     tabell t
 JOIN utbildningsområde u ON u.utbildningsområde_name = t.utbildningsområde;
+
+INSERT INTO kommun (kommun_id, kommun_name, lan_id)
+SELECT
+    ROW_NUMBER() OVER (ORDER BY k.kommun), k.kommun, l.lan_id
+FROM
+    (SELECT DISTINCT kommun, län 
+    FROM tabell) k
+JOIN lan l ON l.lan_name = k.län;
+
+-- NVL for oracle only, COALESCE for broader use
+INSERT INTO ansökan (diarienummer, sun5_kod, seqf_kod, anordnare_id, utbildningsnamn, beslut, yh_poäng, studieform, studietakt_procent, sökta_yrkesområde, sökta_utbildningsomgångar, beviljade_utbildningsomgångar, sökta_platser_totalt, beviljade_platser_totalt)
+SELECT
+    t.diarienummer, t.sun5_inriktning, COALESCE(t.seqf_nivå, 0), a.anordnare_id, t.utbildningsnamn, t.beslut, t.yh_poäng, t.studieform, t.studietakt_#, t.smalt_yrkesområde, t.sökta_utbildningsomgångar, t.beviljade_utbildningsomgångar, t.sökta_platser_totalt, t.beviljade_platser_totalt
+FROM
+    tabell t
+JOIN utbildningsanordnare a ON a.name = TRIM(t.utbildningsanordnare_administr);
+
+INSERT INTO ansökan_kommun (diarienummer, kommun_id)
+SELECT
+    t.diarienummer, k.kommun_id
+FROM
+    tabell t
+JOIN kommun k ON k.kommun_name = t.kommun;
+
+COMMIT;

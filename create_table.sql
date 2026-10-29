@@ -57,6 +57,7 @@ CREATE TABLE ansökan (
     studieform VARCHAR2(50),
     studietakt_procent INT,
     sökta_yrkesområde VARCHAR2(200),
+    sökta_utbildningsomgångar INT,
     beviljade_utbildningsomgångar INT,
     sökta_platser_totalt INT,
     beviljade_platser_totalt INT,
