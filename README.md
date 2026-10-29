@@ -2,25 +2,15 @@
 labuppgift SQL1 
 
 ## Uppgift 1 - Grundläggande EDA
-I have sorted each script in 01_EDA.sql under the directory ```scripts```
+Jag har sorterat skripten i foldern ```scripts```
 
 ## Uppgift 2 & 3 - Domänexpert intervju / Datadrivna beslut.
-A few notes from the interview (Thank you Nike for sharing your notes with me)
 
-Q: Vilken data är mest spännande? Är elevers betyg relevant info för er?
-A: Vi har inga tidigare utbildningar och alltså inte betygshistorik. Betyg kan vara spännande i framtiden.
-Vi är intresserade av vad som blivit godkänt. Inom vilka områden? Hur stor andel av dessa? I vilka geografiska områden?
-
-Q: Är nischade kurser/smala yrkesområden spännande? Många verkar få nej
-A: Smala kurser kan vara spännande. Kolla gärna vilka grupper som blir beviljade/nekade
-
-Q: Spelar distans/platsbunden roll för er?
-A: Vad är "hetast"? Vad får oftare godkänt? Vi är öppna för båda. Vi vill veta vart vi ska rikta oss istället för att skjuta vilt.
-
-Q: Hur mäter ni framgång? Platser, antal beviljade?
-A: Vi vill pricka rätt. Hur ser det ut för andra skolor, i hur stor utsträckning får de beviljade utbildningar?
-
-## Uppgift 4 - To be added in scripts
+Skapat ett dokument i ```Stakeholder interview``` med frågor och svar från intervjutillfället 
+(Tack Nike för att du delade med dig av dina anteckningar)
+**RADERA NÄR FÄRDIG**
+## Uppgift 4 
+TODO skapa folder under ```scripts``` 
 
 ## Uppgift 5 - Analys av utbildningsansökningar - The Skool
 
