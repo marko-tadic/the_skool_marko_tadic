@@ -1,0 +1,126 @@
+SET PAGESIZE 100
+DESC tabell;
+
+-- a) Antal ansökningar per utbildningsområde, sorterat på flest ansökningar
+SELECT 
+    UTBILDNINGSOMRÅDE,
+    COUNT(*) AS ANTAL_ANSÖKNINGAR
+FROM    
+    tabell
+GROUP BY 
+    UTBILDNINGSOMRÅDE
+ORDER BY
+    ANTAL_ANSÖKNINGAR DESC;
+
+-- b) Antal BEVILJADE ansökningar per utbildningsområde
+SELECT
+    UTBILDNINGSOMRÅDE,
+    COUNT(*) AS ANTAL_BEVILJADE_ANSÖKNINGAR
+FROM
+    tabell
+WHERE 
+    BESLUT = 'Beviljad'
+GROUP BY 
+    UTBILDNINGSOMRÅDE
+ORDER BY
+    ANTAL_BEVILJADE_ANSÖKNINGAR DESC;
+
+-- c) Antal AVSLAGNA ansökningar per utbildningsområde
+SELECT
+    UTBILDNINGSOMRÅDE,
+    COUNT(*) AS ANTAL_AVSLAGNA_ANSÖKNINGAR
+FROM
+    tabell
+WHERE 
+    BESLUT = 'Avslag'
+GROUP BY 
+    UTBILDNINGSOMRÅDE
+ORDER BY
+    ANTAL_AVSLAGNA_ANSÖKNINGAR DESC;
+
+-- d) Antal BEVILJADE ansökningar per utbildningsnamn inom Data/IT
+SELECT
+    UTBILDNINGSOMRÅDE,
+    UTBILDNINGSNAMN,
+    COUNT(CASE WHEN BESLUT = 'Beviljad' THEN 1 END) AS ANTAL_BEVILJADE_ANSÖKNINGAR
+FROM
+    tabell
+WHERE
+    BESLUT = 'Beviljad'
+    AND UTBILDNINGSOMRÅDE = 'Data/IT'
+GROUP BY 
+    UTBILDNINGSOMRÅDE,
+    UTBILDNINGSNAMN
+ORDER BY
+    ANTAL_BEVILJADE_ANSÖKNINGAR DESC;
+
+-- e) Antal AVSLAGNA ansökningar per utbildningsnamn inom Data/IT
+SELECT
+    UTBILDNINGSOMRÅDE,
+    UTBILDNINGSNAMN,
+    COUNT(CASE WHEN BESLUT = 'Avslag' THEN 1 END) AS ANTAL_AVSLAGNA_ANSÖKNINGAR
+FROM
+    tabell
+WHERE
+    BESLUT = 'Avslag'
+    AND UTBILDNINGSOMRÅDE = 'Data/IT'
+GROUP BY 
+    UTBILDNINGSOMRÅDE,
+    UTBILDNINGSNAMN
+ORDER BY
+    ANTAL_AVSLAGNA_ANSÖKNINGAR DESC;
+
+-- f) Antal BEVILJADE ansökningar per utbildningsanordnare administrativ enhet & utbildningsnamn, inom Data/IT
+SELECT 
+    UTBILDNINGSOMRÅDE,
+    UTBILDNINGSNAMN,
+    UTBILDNINGSANORDNARE_ADMINISTR,
+    COUNT(*) AS ANTAL_BEVILJADE_ANSÖKNINGAR
+FROM
+    tabell
+WHERE
+    BESLUT = 'Beviljad'
+    AND UTBILDNINGSOMRÅDE = 'Data/IT'
+GROUP BY
+    UTBILDNINGSOMRÅDE,
+    UTBILDNINGSNAMN,
+    UTBILDNINGSANORDNARE_ADMINISTR
+ORDER BY
+    UTBILDNINGSANORDNARE_ADMINISTR ASC,
+    ANTAL_BEVILJADE_ANSÖKNINGAR;
+
+-- g) Topp 5 län efter antal beviljade ansökningar
+SELECT
+    LÄN,
+    COUNT(CASE WHEN BESLUT = 'Beviljad' THEN 1 END) AS ANTAL_BEVILJADE_ANSÖKNINGAR
+FROM
+    tabell
+WHERE 
+    BESLUT = 'Beviljad'
+GROUP BY
+    LÄN
+ORDER BY
+    ANTAL_BEVILJADE_ANSÖKNINGAR DESC
+FETCH FIRST 5 ROWS ONLY;
+
+-- h) Andel distans och andel bundna utbildningar inom respektive utbildningsområde
+SELECT
+    UTBILDNINGSOMRÅDE,
+ROUND(
+    (SUM(CASE WHEN STUDIEFORM = 'Distans' THEN 1 ELSE 0 END) * 100.0) / COUNT(*),1
+) AS ANDEL_DISTANS_PROCENT,
+ROUND(
+    (SUM(CASE WHEN STUDIEFORM = 'Bunden' THEN 1 ELSE 0 END) * 100.0) / COUNT(*),1
+) AS ANDEL_BUNDEN_PROCENT
+FROM
+    tabell
+GROUP BY 
+    UTBILDNINGSOMRÅDE;
+
+-- i) Antal utbildningar som innehåller ordet AI
+SELECT
+    COUNT(*) AS ANTAL_UTBILDNINGAR_MED_AI
+FROM
+    tabell
+WHERE
+    UTBILDNINGSNAMN LIKE '%AI%';
