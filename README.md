@@ -20,7 +20,7 @@ Denna lab bygger på en verklig tabellanalys från 2025 som har konverterats til
 För att utbildningsanordnare ska beviljas att bedriva YH-utbildningar (program eller kurser) med statligt finansiellt stöd krävs en formell ansökan till myndigheten. Varje enskild ansökan måste innehålla:
 - En tydlig beskrivning av hur utbildningen är **förankrad i arbetslivet**
 - Bevis på att det finns ett reellt **kompetensbehov** för arbetsmarknaden för de studerande. 
-- Dokumentation som styker att ett visst antal personer från relevanta branscher i arbetslivet kan **verifiera och stödja detta behov.**
+- Dokumentation som styrker att ett visst antal personer från relevanta branscher i arbetslivet kan **verifiera och stödja detta behov.**
 
 ### Analysfokus och affärsfrågor 
 Eftersom **The Skool** är en helt ny skola utan tidigare utbildnings- eller betygshistorik, ligger fokus helt på att analysera externa marknadstrender och konkurrenters historiska data. Utifrån verksamhetens behov har analysen i SQL fokuserat på följande kärnområden för att skolan ska slippa "skjuta vilt":
