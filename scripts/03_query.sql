@@ -65,7 +65,7 @@ GROUP BY ua.name
 HAVING COUNT(*) >= 5
 ORDER BY antal_beviljande DESC;
 
--- Konkurrentanalys (med färre eller lika med 5), sorterat efter beviljandegrad.
+-- Konkurrentanalys (utan restriktioner om antal ansökningar) sorterat efter beviljandegrad.
 SELECT
     ua.name AS anordnare,
     COUNT(*) AS antal_ansökningar,
@@ -79,8 +79,9 @@ JOIN utbildningsanordnare ua ON a.anordnare_id = ua.anordnare_id
 GROUP BY ua.name
 ORDER BY beviljandegrad_procent DESC;
 
--- Huvudmannatyp istället för anordnare.
+-- Huvudmannatyp per område
 SELECT
+    uo.utbildningsområde_name,
     ua.huvudmannatyp,
     COUNT(*) AS antal_ansökningar,
     SUM(CASE WHEN a.beslut = 'Beviljad' THEN 1 ELSE 0 END) as antal_beviljande,
@@ -89,7 +90,27 @@ SELECT
         / COUNT(*), 1) AS beviljandegrad_procent
 FROM
     ansökan a
+JOIN sun5_inriktning s ON a.sun5_kod = s.sun5_kod
+JOIN utbildningsområde uo ON s.utbildningsområde_id = uo.utbildningsområde_id
 JOIN utbildningsanordnare ua ON a.anordnare_id = ua.anordnare_id
-GROUP BY ua.huvudmannatyp
+WHERE
+    a.beslut In ('Beviljad', 'Avslag')
+GROUP BY uo.utbildningsområde_name, ua.huvudmannatyp
 HAVING COUNT(*) >= 5
-ORDER BY beviljandegrad_procent DESC;
+ORDER BY uo.utbildningsområde_name, beviljandegrad_procent DESC;
+
+-- Antal starter och beviljandegrad
+SELECT
+    a.sökta_utbildningsomgångar AS antal_starter,
+    COUNT(*) AS antal_ansökningar,
+    SUM(CASE WHEN a.beslut = 'Beviljad' THEN 1 ELSE 0 END) AS antal_beviljade,
+    ROUND(
+        (SUM(CASE WHEN a.beslut = 'Beviljad' THEN 1 ELSE 0 END) * 100.0) 
+        / COUNT(*), 1) AS beviljandegrad_procent
+FROM 
+    ansökan a
+WHERE
+    a.beslut IN ('Beviljad', 'Avslag')
+GROUP BY a.sökta_utbildningsomgångar
+ORDER BY a.sökta_utbildningsomgångar;
+
