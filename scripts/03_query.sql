@@ -114,3 +114,20 @@ WHERE
 GROUP BY a.sökta_utbildningsomgångar
 ORDER BY a.sökta_utbildningsomgångar;
 
+-- Nischer
+SELECT
+    s.sun5_namn,
+    COUNT(*) AS antal_ansökningar,
+    SUM(CASE WHEN a.beslut = 'Beviljad' THEN 1 ELSE 0 END) AS antal_beviljade,
+    ROUND(
+        (SUM(CASE WHEN a.beslut = 'Beviljad' THEN 1 ELSE 0 END) * 100.0)
+        / COUNT (*), 1) AS beviljandegrad_procent
+FROM
+    ansökan a
+JOIN sun5_inriktning s ON a.sun5_kod = s.sun5_kod
+WHERE
+    a.beslut IN ('Beviljad', 'Avslag')
+GROUP BY
+    s.sun5_namn
+HAVING COUNT(*) >= 8
+ORDER BY beviljandegrad_procent DESC;
