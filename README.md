@@ -45,3 +45,6 @@ Hur det ser ut med antal ansökningar och beviljandegrad för studieform:
 Samt konkurrens mellan anordnare (har valt att filtrera bort anordnare med färre eller lika med 5 ansökningar):  
 ![konkurrens.png](screenshots/konkurrens.png)  
 
+
+### Länk till videopresentation
+https://youtu.be/1ZFjIi96Ryc
